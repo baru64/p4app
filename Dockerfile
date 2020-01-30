@@ -45,8 +45,8 @@ RUN apt-get update && \
 
 # Collector dependencies
 RUN apt-get install -y python3-pip
-RUN pip3 install prometheus_client
-RUN pip install prometheus_client
+RUN pip3 install prometheus_client ipaddress influxdb
+RUN pip install prometheus_client ipaddress influxdb
 
 # eBPF dependencies
 RUN apt-get install -y apt-transport-https ca-certificates
