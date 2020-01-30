@@ -51,10 +51,9 @@ RUN pip install prometheus_client ipaddress influxdb
 # eBPF dependencies
 RUN apt-get install -y apt-transport-https ca-certificates
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4052245BD4284CDD
-RUN echo "deb https://repo.iovisor.org/apt/$(lsb_release -cs) $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/iovisor.list
+RUN echo "deb https://repo.iovisor.org/apt/xenial xenial main" | tee /etc/apt/sources.list.d/iovisor.list
 RUN apt-get update
-RUN apt-get install -y bcc-tools libbcc-examples linux-headers-$(uname -r)
-
+RUN apt-get install -y bcc-tools libbcc-examples linux-headers-4.15.0-72-generic
 # Fix to get tcpdump working
 RUN mv /usr/sbin/tcpdump /usr/bin/tcpdump
 
